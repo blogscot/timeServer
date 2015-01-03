@@ -10,6 +10,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Iain Diamond",
+  "license": "ISC",
+  "engines": {
+    "node": "0.10.x"
+  }
 }
