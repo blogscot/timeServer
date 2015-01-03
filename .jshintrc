@@ -1,0 +1,11 @@
+{
+  "node":      true,
+  "strict":    true,
+  "maxlen":    100,
+  "newcap":    true,
+  "camelcase": true,
+  "undef":     true,
+  "unused":    true,
+  "onecase":   true,
+  "indent":    2
+}
