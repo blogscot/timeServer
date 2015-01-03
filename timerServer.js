@@ -1,6 +1,7 @@
 var express = require('express');
 
 var app = express();
+var port = process.env.PORT || 3000;
 
 function pad(num) {
 	'use strict';
@@ -37,4 +38,4 @@ app.all('*', function(req, res, next){
   next();
 });
 
-app.listen(3000);
+app.listen(port);
