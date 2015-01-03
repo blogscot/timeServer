@@ -25,7 +25,7 @@ function getCurrentTime() {
 		pad(hours) + ':' + pad(minutes);
 }
 
-app.get('/time', function (req, res) {
+app.get('/', function (req, res) {
 	'use strict';
 	res.send(getCurrentTime());
 });
