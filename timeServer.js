@@ -25,17 +25,17 @@ function getCurrentTime() {
 		pad(hours) + ':' + pad(minutes);
 }
 
-app.get('/', function (req, res) {
-	'use strict';
-	res.send(getCurrentTime());
-});
-
 app.all('*', function(req, res, next){
 	'use strict';
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header("Content-Type", "application/json");
   next();
+});
+
+app.get('/', function (req, res) {
+	'use strict';
+	res.send(getCurrentTime());
 });
 
 app.listen(port);
