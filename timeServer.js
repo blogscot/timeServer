@@ -29,7 +29,7 @@ app.all('*', function(req, res, next){
 	'use strict';
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Content-Type", "application/json");
+  res.header("Content-Type", "application/text");
   next();
 });
 
