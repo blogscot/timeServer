@@ -29,12 +29,18 @@ app.all('*', function(req, res, next){
 	'use strict';
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Content-Type", "application/text");
   next();
 });
 
 app.get('/', function (req, res) {
 	'use strict';
+  res.header("Content-Type", "application/text");
+	res.send(getCurrentTime());
+});
+
+app.get('/json', function (req, res) {
+	'use strict';
+  res.header("Content-Type", "application/json");
 	res.send(getCurrentTime());
 });
 
