@@ -11,18 +11,30 @@ function pad(num) {
 	return num;
 }
 
-function getCurrentTime() {
+function getCurrentTime(format) {
 	'use strict';
 
 	var date = new Date(),
 	    year = date.getFullYear(),
-	    month  = date.getMonth()+1, // month is zero indexed
+	    month  = date.getMonth() + 1, // month is zero indexed
 	    day = date.getDate(),
 	    hours = date.getHours(),
-	    minutes = date.getMinutes();
+	    minutes = date.getMinutes(),
+	    seconds = date.getSeconds();
 
-	return year + '-' + pad(month) + '-' + pad(day) + ' ' + 
-		pad(hours) + ':' + pad(minutes);
+	if (format === 'text') {
+		return year + '-' + pad(month) + '-' + pad(day) + ' ' + 
+			pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+	}
+	
+	return { 
+		'year': year,
+	  'month': pad(month),
+	  'day': pad(day),
+		'hours': pad(hours),
+		'minutes': pad(minutes),
+		'seconds': pad(seconds)
+	};
 }
 
 app.all('*', function(req, res, next){
@@ -35,13 +47,13 @@ app.all('*', function(req, res, next){
 app.get('/', function (req, res) {
 	'use strict';
   res.header("Content-Type", "application/text");
-	res.send(getCurrentTime());
+	res.send(getCurrentTime('text'));
 });
 
 app.get('/json', function (req, res) {
 	'use strict';
   res.header("Content-Type", "application/json");
-	res.send(JSON.stringify(getCurrentTime()));
+	res.send(getCurrentTime());
 });
 
 app.listen(port);
