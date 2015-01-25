@@ -8,7 +8,7 @@ function pad(num) {
 	if (num.toString().length < 2) {
 		num = '0' + num;
 	}
-	return parseInt(num);
+	return num;
 }
 
 function getCurrentTime(format) {
