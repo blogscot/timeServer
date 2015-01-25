@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
 app.get('/json', function (req, res) {
 	'use strict';
   res.header("Content-Type", "application/json");
-	res.send(getCurrentTime());
+	res.send(JSON.stringify(getCurrentTime()));
 });
 
 app.listen(port);
